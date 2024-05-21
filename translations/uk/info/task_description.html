@@ -1,0 +1,52 @@
+<!-- Describe task in general -->
+
+<p style="text-align: justify;">
+    Узагальнену квадратну шахову дошку захопила армія <a target="_blank" href="https://en.wikipedia.org/wiki/Bishop_(chess)">bishops</a>, кожен слон представлений у вигляді двох кортежів <code>{% if is_js %}[row, col]{% else %}(row, col){% endif %}</code> (0-базова індексація) координат клітинки, на якій стоїть слон. За розміром дошки <code>n</code> та масивом {% if is_js %}{% else %} зі списком{% endif %} слонів на цій дошці, підрахуйте кількість безпечних клітинок, які не зайняті жодним слоном.
+</p>
+
+<p style="text-align: justify;">
+    Розглянемо випадок <code>{% if is_js %}4, [[2, 3], [0, 1]]{% else %}4, [(2, 3), (0, 1)]{% endif %}</code>який має вигляд <code>11</code>.
+</p>
+<p style="text-align: center;">
+    <img  title="example" src="{{MEDIA}}dangerous-bishops.svg" alt="example" style="max-height: 200px"/>
+</p>
+
+<details>
+    <summary><i>Натисніть на цей рядок, якщо вам потрібна підказка</i></summary>
+    <p style="text-align: justify;"><i>
+        Щоб перевірити, чи можна з двох клітинок (r1, c1) і (r2, c2) дістатися одна до одної за один хід слона, вираз abs(r1-r2)==abs(c1-c2) перевіряє, що відстань по горизонталі між цими клітинками дорівнює відстані по вертикалі, що є необхідною і достатньою умовою для того, щоб ці клітинки лежали на одній діагоналі. Таким чином, вам не потрібно окремо переписувати по суті ідентичний блок логіки чотири рази, а один тест обробляє всі чотири напрямки діагоналей одним махом.
+    </i></p>
+</details>
+
+<!-- Explain input and output values -->
+<p>
+   <strong>Вхідні дані:</strong> Два аргументи. Ціле число <span>({% if is_js %}number{% else %}int{% endif %})</span> та {% if is_js %}масив{% else %}список{% endif %} <span>({% if is_js %}array{% else %}list{% endif %})</span> кортежів з двох цілих чисел.
+</p>
+
+<p>
+   <strong>Вивести:</strong> Ціле число. 
+</p>
+
+<p>
+    <strong>Пояснення:</strong>
+</p>
+
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+
+<!-- Here you can explain how it can be used in development -->
+<!-- The section is optional -->
+<!-- <p class="for_info_only">
+
+    <strong>How it’s used:</strong>
+    <i>(math is used everywhere)</i>
+</p> -->
+
+<!-- Here you can explain some constraints for input-->
+<!-- The section is optional -->
+<!-- <p>
+    <strong>Preconditions:</strong>
+    <ul>
+    <li><i>both given ints should be between -1000 and 1000</i></li>
+    </ul>
+</p> -->
+<p><i>Завдання взято з сайту <span>Python CCPS 109</span>. Для <span>Ryerson Chang School of Continuing Education</span> його розв'язано за допомогою <a href="https://github.com/ikokkari">Ilkka Kokkarinen</a></i></p>
