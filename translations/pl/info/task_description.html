@@ -1,0 +1,52 @@
+<!-- Describe task in general -->
+
+<p style="text-align: justify;">
+    Uogólniona kwadratowa szachownica została przejęta przez armię <a target="_blank" href="https://en.wikipedia.org/wiki/Bishop_(chess)">bishops</a>, a każdy goniec jest reprezentowany jako dwójka <code>{% if is_js %}[row, col]{% else %}(row, col){% endif %}</code> (indeksowanie bazy 0) współrzędnych pola, na którym stoi goniec. Biorąc pod uwagę rozmiar szachownicy <code>n</code> i tablicę {% if is_js %}{% else %} z listą{% endif %} gońców na tej szachownicy, proszę policzyć liczbę bezpiecznych pól, na których nie stoi żaden goniec.
+</p>
+
+<p style="text-align: justify;">
+    Proszę spojrzeć na przypadek <code>{% if is_js %}4, [[2, 3], [0, 1]]{% else %}4, [(2, 3), (0, 1)]{% endif %}</code>czyli <code>11</code>.
+</p>
+<p style="text-align: center;">
+    <img  title="example" src="{{MEDIA}}dangerous-bishops.svg" alt="example" style="max-height: 200px"/>
+</p>
+
+<details>
+    <summary><i>Proszę kliknąć ten wiersz, jeśli potrzebują Państwo podpowiedzi</i></summary>
+    <p style="text-align: justify;"><i>
+        Aby sprawdzić, czy dwa pola (r1, c1) i (r2, c2) są osiągalne od siebie w jednym ruchu gońca, wyrażenie abs(r1-r2)==abs(c1-c2) sprawdza, czy odległość pozioma między tymi polami jest równa ich odległości pionowej, co jest zarówno konieczne, jak i wystarczające, aby te pola leżały na tej samej przekątnej. W ten sposób nie trzeba osobno przepisywać zasadniczo identycznego bloku logiki cztery razy, ale jeden test obsługuje wszystkie cztery kierunki przekątnych za jednym zamachem.
+    </i></p>
+</details>
+
+<!-- Explain input and output values -->
+<p>
+   <strong>Wejście:</strong> Dwa argumenty. Liczba całkowita <span>({% if is_js %}number{% else %}int{% endif %})</span> i {% if is_js %}tablica{% else %}lista{% endif %} <span>({% if is_js %}array{% else %}list{% endif %})</span> krotek dwóch liczb całkowitych.
+</p>
+
+<p>
+   <strong>Wyjście:</strong> Liczba całkowita. 
+</p>
+
+<p>
+    <strong>Przykłady:</strong>
+</p>
+
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+
+<!-- Here you can explain how it can be used in development -->
+<!-- The section is optional -->
+<!-- <p class="for_info_only">
+
+    <strong>How it’s used:</strong>
+    <i>(math is used everywhere)</i>
+</p> -->
+
+<!-- Here you can explain some constraints for input-->
+<!-- The section is optional -->
+<!-- <p>
+    <strong>Preconditions:</strong>
+    <ul>
+    <li><i>both given ints should be between -1000 and 1000</i></li>
+    </ul>
+</p> -->
+<p><i>Misja została pobrana z <span>Python CCPS 109</span>. Jest ona nauczana dla <span>Ryerson Chang School of Continuing Education</span> przez <a href="https://github.com/ikokkari">Ilkka Kokkarinen</a></i></p>
